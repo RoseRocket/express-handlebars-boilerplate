@@ -20,8 +20,7 @@ export function repos(req, res, next) {
 
   githubApi
     .getRepos({ username })
-    .then((repos) => { 
-
+    .then((repos) => {
       res.render(API_DATA_VIEW, { ...context, repos });
     })
     .catch(next);

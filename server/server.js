@@ -18,7 +18,8 @@ import errorHandler from './middlewares/serverError.js';
 import exphbs from 'express-handlebars';
 import * as config from './config/config.js';
 
-let { PORT = 3000, IP = 'localhost' } = config;
+let { PORT = 3000 } = config;
+const { IP = 'localhost' } = config;
 
 const PING = 'ping';
 
@@ -47,7 +48,8 @@ app.use('/*', authRequest
   .unless({
     path: [
       `/${PING}`,
-      `/home`
+      '/home',
+      '/homeWithPartials'
     ]
   })
 );
@@ -60,7 +62,7 @@ app.use(errorHandler);
 
 // set the port for the webservice
 if (process.argv.length > 2) {
-  port = process.argv[2];
+  PORT = process.argv[2];
 }
 
 // set process title

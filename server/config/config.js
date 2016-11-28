@@ -24,10 +24,10 @@ export const db = {
   database: 'MY_DATABASE'
 };
 export const githubApi = {
-  token: "Maybe you need a secret key to pass",
+  authHeader: '',
   timeout: 6000,
   urls: {
-    base: "https://api.github.com/",
-    repos: "users/%s/repos"
+    base: 'https://api.github.com/',
+    repos: 'users/%s/repos'
   }
 };
