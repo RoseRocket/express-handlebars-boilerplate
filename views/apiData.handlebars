@@ -1,0 +1,58 @@
+<div class="container">
+
+  <!-- The justified navigation menu is meant for single line per list item.
+       Multiple lines will require custom code not provided by Bootstrap. -->
+  <div class="masthead">
+    <h3 class="text-muted">Project name</h3>
+    <nav>
+      <ul class="nav nav-justified">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <h2>{{githubAuthor}} GitHub projects:</h2>
+
+  {{#if repos.length}}
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>URL</th>
+      </tr>
+      {{#each repos}}
+        <tr>
+          <td class="col-md-3"><strong>{{name}}</strong></td>
+          <td class="col-md-6">{{description}}</td>
+          <td class="col-md-3">
+            <a href={{html_url}} alt={{description}} title={{description}}>
+              {{html_url}}
+            </a>
+          </td>
+        </tr>
+      {{/each}}
+    </table>
+  {{else}}
+    <h4>Ooops. No repos found.</h4>
+    <p>Try to get repos for an existing user. For example 
+      <a 
+        href="http://localhost:3000/users/anvk/repos?token=SOME-KEY-HERE"
+        title="anvk repos"
+        alt="anvk repos"
+      >
+        http://localhost:3000/users/anvk/repos?token=SOME-KEY-HERE
+      </a>
+    </p>
+  {{/if}}
+
+  <!-- Site footer -->
+  <footer class="footer">
+    <p>&copy; 2016 Company, Inc.</p>
+  </footer>
+
+</div> <!-- /container -->
