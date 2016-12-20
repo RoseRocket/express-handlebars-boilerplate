@@ -49,7 +49,8 @@ app.use('/*', authRequest
     path: [
       `/${PING}`,
       '/home',
-      '/homeWithPartials'
+      '/homeWithPartials',
+      '/emailTemplate'
     ]
   })
 );

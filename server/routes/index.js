@@ -8,6 +8,7 @@ router.get('/ping', (req, res) => res.json({ message: 'pong' }));
 
 // Basic rendering ----------------------------
 router.get('/home', basic.home);
+router.get('/emailTemplate', basic.emailTemplate);
 router.get('/homeWithPartials', basic.homeWithPartials);
 //---------------------------------------------
 

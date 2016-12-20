@@ -1,0 +1,114 @@
+<div class="jumbotron image">
+  <div class="container text-left">
+    <h2>Good Morning, {{header.firstName}}, {{header.lastName}}</h2>
+    <h2>Here is your Summary for {{header.orgName}} Activity</h2>
+    <h2>for {{header.date}}</h2>
+  </div>
+</div>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <h2>Orders Dispatched</h2>
+      <h2 class="numberHeader">{{totals.ordersDispatched}}</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <h2>Orders Delivered</h2>
+      <h2 class="numberHeader">{{totals.ordersDelivered}}</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <h2>Currently In-Transit</h2>
+      <h2 class="numberHeader">{{totals.currentlyInTransit}}</h2>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Orders <u>Delivered</u> Yesterday</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-borderless font-large">
+        {{#each ordersDelivered}}
+          <tr>
+            <td class="col-md-2 text-center">
+              <a
+                href="http://www.google.ca"
+                alt="Go to leg {{tripId}}"
+                title="Go to leg {{tripId}}"
+              >
+                <strong>{{tripId}}</strong>
+              </a>
+            </td>
+            <td class="col-md-3 text-center">{{origin}}</td>
+            <td class="col-md-3 text-center">{{destination}}</td>
+            <td class="col-md-2 text-center hidden-xs">{{skids}}skids</td>
+            <td class="col-md-2 text-center hidden-xs">{{weight}}lbs</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a
+        class="btn btn-primary btn-lg mainButton"
+        href="#"
+        role="button"
+      >
+        LOGIN TO VIEW MORE »
+      </a>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Orders <u>Dispatched</u> Yesterday</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-borderless font-large">
+        {{#each ordersDispatched}}
+          <tr>
+            <td class="col-md-2 text-center">
+              <a
+                href="http://www.google.ca"
+                alt="Go to leg {{tripId}}"
+                title="Go to leg {{tripId}}"
+              >
+                <strong>{{tripId}}</strong>
+              </a>
+            </td>
+            <td class="col-md-3 text-center">{{origin}}</td>
+            <td class="col-md-3 text-center">{{destination}}</td>
+            <td class="col-md-2 text-center hidden-xs">{{skids}}skids</td>
+            <td class="col-md-2 text-center hidden-xs">{{weight}}lbs</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a
+        class="btn btn-primary btn-lg mainButton"
+        href="#"
+        role="button"
+      >
+        LOGIN TO VIEW MORE »
+      </a>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <p>© 2016 RoseRocket, Inc.</p>
+  </footer>
+</div>
