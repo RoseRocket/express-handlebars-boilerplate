@@ -1,17 +1,20 @@
 @mainColor: #3EBFAC;
+@mainFontWeight: 500;
 
 .jumbotron.image {
-  background: url('https://drscdn.500px.org/photo/110290623/m%3D2048/b6b2e3382249b1746a78c3dbd56e00f5') no-repeat center center;
+  background:
+      /* top, transparent black, faked with gradient */
+      linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ),
+      /* bottom, image */
+      url(https://drscdn.500px.org/photo/110290623/m%3D2048/b6b2e3382249b1746a78c3dbd56e00f5) no-repeat center center;
+  color: white;
 }
 
-.table.fontlarge td {
+.table.font-large td {
   font-size: large;
-}
-
-.numberHeader {
-  color: @mainColor;
-  font-size: 60px;
-  font-weight: 500;
 }
 
 .table-borderless tbody tr td,
@@ -20,11 +23,21 @@
 .table-borderless thead tr td,
 .table-borderless tfoot tr th,
 .table-borderless tfoot tr td {
-    border: none;
+  border: none;
+}
+
+.numberHeader {
+  color: @mainColor;
+  font-size: 60px;
+  font-weight: @mainFontWeight;
 }
 
 .mainButton {
   background-color: @mainColor;
   border-color: @mainColor;
-  font-weight: 500;
+  font-weight: @mainFontWeight;
+  &:hover {
+    background-color: darken(@mainColor, 15%);
+    border-color: darken(@mainColor, 15%);
+  }
 }

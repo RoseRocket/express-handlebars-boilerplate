@@ -33,7 +33,8 @@ export function emailTemplate(req, res) {
       firstName: 'Alexey',
       lastName: 'Novak',
       orgName: 'ANCarrier',
-      date: 'Dec 21, 2016'
+      date: 'Dec 21, 2016',
+      imageUrl: 'https://drscdn.500px.org/photo/110290623/m%3D2048/b6b2e3382249b1746a78c3dbd56e00f5'
     },
     totals: {
       ordersDispatched: 45,

@@ -1,8 +1,14 @@
-<div class="jumbotron image">
+{{!-- Image has to be randomly picked using http://stackoverflow.com/a/18096210 --}}
+<div
+  class="jumbotron image"
+  style="linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url({{header.imageUrl}}) no-repeat center center;"
+>
   <div class="container text-left">
-    <h2>Good Morning, {{header.firstName}}, {{header.lastName}}</h2>
-    <h2>Here is your Summary for {{header.orgName}} Activity</h2>
-    <h2>for {{header.date}}</h2>
+    <h2>
+      Good Morning, {{header.firstName}}, {{header.lastName}}<br />
+      Here is your Summary for {{header.orgName}} Activity<br />
+      for {{header.date}}
+    </h2>
   </div>
 </div>
 <div class="container">
