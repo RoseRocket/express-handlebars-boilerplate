@@ -1,6 +1,6 @@
 {
   "name": "express-handlebars-boilerplate",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS page",
   "contributors": [
     {
