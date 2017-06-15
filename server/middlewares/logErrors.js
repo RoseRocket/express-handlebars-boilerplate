@@ -14,7 +14,14 @@ export default function(err, req, res, next) {
   if (method === 'POST' || method === 'PUT') {
     console.error(`body is -> ${JSON.stringify(body)}`);
   }
-  console.error(err);
-  console.error(err.stack);
+
+  if (err.stack) {
+    console.error(err.stack);
+  } else if (err.message) {
+    console.error(err.message);
+  } else {
+    console.error(err);
+  }
+
   next(err);
 }

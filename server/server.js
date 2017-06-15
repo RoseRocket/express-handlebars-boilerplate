@@ -17,6 +17,7 @@ import logErrorsHandler from './middlewares/logErrors.js';
 import errorHandler from './middlewares/serverError.js';
 import exphbs from 'express-handlebars';
 import * as config from './config/config.js';
+import * as helpers from './utils/hbsHelpers.js'
 
 let { PORT = 3000 } = config;
 const { IP = 'localhost' } = config;
@@ -35,7 +36,10 @@ app.use(bodyParser.json());
 app.use('/static', express.static(path.join(__dirname, '../public')));
 
 // Use Handlebars as my main render engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  helpers,
+}));
 app.set('view engine', 'handlebars');
 
 // enable aggressive view caching for production
@@ -78,6 +82,10 @@ if (process.argv.length > 4) {
 // Start the server
 app.set('port', PORT);
 app.listen(app.get('port'), IP, () => {
+  if (!process.env.NODE_ENV) {
+    console.log(`process.env.NODE_ENV is not set!`);
+  }
+
   console.log(`WebService has started on ${IP}:${PORT} running in ${process.env.NODE_ENV} mode`);
   if (process.env.NODE_ENV !== PRODUCTION_MODE) {
     console.log('PLEASE NOTE: your webservice is running not in a production mode!');

@@ -2,7 +2,12 @@ import request from 'superagent';
 import Promise from 'promise';
 import { githubApi } from '../config/config.js';
 
-const { urls, timeout, authHeader } = githubApi;
+const {
+  urls,
+  timeout,
+  authHeader,
+  apiBaseEndpoint,
+} = githubApi;
 
 export function createRequest(options = {}) {
   const {
@@ -23,8 +28,10 @@ export function createRequest(options = {}) {
     body = data;
   }
 
+  const apiEndpoint = `${apiBaseEndpoint}${url}`;
+
   return new Promise((resolve, reject) => {
-    request[method](urls.base + url)
+    request[method](apiEndpoint)
       .timeout(timeout)
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json; charset=utf-8')
