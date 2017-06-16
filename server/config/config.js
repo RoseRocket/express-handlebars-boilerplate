@@ -5,7 +5,7 @@ export const IP = 'localhost';
 export const PORT = 3000;
 export const TOKEN = {
   secret: 'SOME-KEY-HERE',
-  headerName: 'token'
+  headerName: 'token',
 };
 export const HTTP_CODES = {
   HTTP_SUCCESS: 200,
@@ -13,7 +13,7 @@ export const HTTP_CODES = {
   HTTP_INVALID_TOKEN: 401,
   HTTP_NOT_AUTHORIZED: 403,
   HTTP_NOT_FOUND: 404,
-  HTTP_SERVER_ERROR: 500
+  HTTP_SERVER_ERROR: 500,
 };
 
 // extra 3rd party configs
@@ -21,13 +21,13 @@ export const db = {
   user: 'USER',
   password: 'PASSWORD',
   server: 'MY_SERVER',
-  database: 'MY_DATABASE'
+  database: 'MY_DATABASE',
 };
 export const githubApi = {
   authHeader: '',
   timeout: 6000,
+  apiBaseEndpoint: 'https://api.github.com',
   urls: {
-    base: 'https://api.github.com/',
-    repos: 'users/%s/repos'
+    repos: '/users/%s/repos',
   }
 };
