@@ -38,3 +38,6 @@ jspm_packages
 
 # remove pre-built folder
 server-dist
+
+# environment variable
+.env
