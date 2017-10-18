@@ -3,6 +3,11 @@ Express Handlebars Boilerplate
 
 > Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS page
 
+## Create environment variable
+```
+cp .env.example .env
+```
+
 ## How to build:
 
 1. Install Node
