@@ -19,7 +19,7 @@ import exphbs from 'express-handlebars';
 import * as config from './config/config.js';
 import * as helpers from './utils/hbsHelpers.js';
 
-const { PORT = 3000, HOST = 'localhost', TITLE, PID_FILE } = process.env;
+let { PORT = 3000, HOST = 'localhost', TITLE, PID_FILE } = process.env;
 
 const PING = 'ping';
 
@@ -63,13 +63,22 @@ app.use(notFoundRequest);
 app.use(logErrorsHandler);
 app.use(errorHandler);
 
+// set the port for the webservice
+if (process.argv.length > 2) {
+    PORT = process.argv[2];
+}
+
 // set process title
-if (TITLE) {
+if (process.argv.length > 3) {
+    process.title = process.argv[3];
+} else if (TITLE) {
     process.title = TITLE;
 }
 
-// output process pid into a file if needed
-if (PID_FILE) {
+// output process pid into a file if needed (ignore env variable)
+if (process.argv.length > 4) {
+    fs.writeFile(process.argv[4], process.pid);
+} else if (PID_FILE) {
     fs.writeFile(PID_FILE, process.pid);
 }
 
