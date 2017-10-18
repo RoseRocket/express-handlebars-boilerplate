@@ -12,11 +12,12 @@ cp .env.example .env
 
 1. Install Node
 2. Install NPM
+3. Install Yarn
 
 To install packages
 
 ```
-npm install
+yarn install
 ```
 
 ## To build & start webservice
