@@ -1,6 +1,7 @@
+import { format } from 'util';
 import { createRequest } from './baseRequest.js';
 import { githubApi } from '../config/config.js';
-import { format } from 'util';
+
 const { urls } = githubApi;
 
 export function getRepos(args) {

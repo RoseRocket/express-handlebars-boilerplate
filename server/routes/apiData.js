@@ -12,16 +12,14 @@ export function repos(req, res, next) {
         author: 'Alexey Novak',
         description: '',
         keywords: '',
-        robots: ''
-      }
+        robots: '',
+      },
     },
-    githubAuthor: username
+    githubAuthor: username,
   };
 
   githubApi
     .getRepos({ username })
-    .then((repos) => {
-      res.render(API_DATA_VIEW, { ...context, repos });
-    })
+    .then(repos => res.render(API_DATA_VIEW, { ...context, repos }))
     .catch(next);
 }

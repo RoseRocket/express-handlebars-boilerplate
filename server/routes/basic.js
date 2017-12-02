@@ -9,9 +9,9 @@ export function home(req, res) {
         author: 'Alexey Novak',
         description: '',
         keywords: '',
-        robots: ''
-      }
-    }
+        robots: '',
+      },
+    },
   };
 
   res.render(BASIC_VIEW, context);
@@ -25,9 +25,9 @@ export function homeWithPartials(req, res) {
         author: 'Alexey Novak',
         description: '',
         keywords: '',
-        robots: ''
-      }
-    }
+        robots: '',
+      },
+    },
   };
 
   res.render(BASIC_VIEW_WITH_PARTIALS, context);

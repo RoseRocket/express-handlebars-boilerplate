@@ -1,16 +1,10 @@
 import unless from 'express-unless';
 
-import {
-  TOKEN,
-  HTTP_CODES
-} from '../config/config.js';
+import { TOKEN, HTTP_CODES } from '../config/config.js';
 
 const { secret, headerName } = TOKEN;
 
-const {
-  HTTP_INVALID_TOKEN,
-  HTTP_NOT_AUTHORIZED
-} = HTTP_CODES;
+const { HTTP_INVALID_TOKEN, HTTP_NOT_AUTHORIZED } = HTTP_CODES;
 
 function validateToken(token) {
   // <------- PUT YOUR AUTH LOGIC IN THIS FUNCTION
@@ -19,15 +13,16 @@ function validateToken(token) {
 }
 
 function middleware(req, res, next) {
-  const token = (req.body && req.body[headerName]) ||
-              (req.query && req.query[headerName]) ||
-              req.headers[headerName];
+  const token =
+    (req.body && req.body[headerName]) ||
+    (req.query && req.query[headerName]) ||
+    req.headers[headerName];
 
   if (!token) {
     res.status(HTTP_INVALID_TOKEN);
     res.json({
       status: HTTP_INVALID_TOKEN,
-      message: 'Invalid Token'
+      message: 'Invalid Token',
     });
     return;
   }
@@ -38,7 +33,7 @@ function middleware(req, res, next) {
       res.status(HTTP_NOT_AUTHORIZED);
       res.json({
         status: HTTP_NOT_AUTHORIZED,
-        message: 'Not Authorized'
+        message: 'Not Authorized',
       });
       return;
     }
