@@ -1,21 +1,11 @@
 import request from 'superagent';
 import Promise from 'promise';
-import { githubApi } from '../config/config.js';
+import { githubApi } from '../config/config';
 
-const {
-  urls,
-  timeout,
-  authHeader,
-  apiBaseEndpoint,
-} = githubApi;
+const { timeout, authHeader, apiBaseEndpoint } = githubApi;
 
 export function createRequest(options = {}) {
-  const {
-    url,
-    data,
-    method = 'get',
-    token = ''
-  } = options;
+  const { url, data, method = 'get', token = '' } = options;
 
   const requestType = method.toLowerCase();
 

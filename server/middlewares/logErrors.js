@@ -3,10 +3,7 @@
 export default function(err, req, res, next) {
   let { method } = req;
 
-  const {
-    url,
-    body
-  } = req;
+  const { url, body } = req;
 
   method = method.toUpperCase();
 

@@ -29,5 +29,5 @@ export const githubApi = {
   apiBaseEndpoint: 'https://api.github.com',
   urls: {
     repos: '/users/%s/repos',
-  }
+  },
 };
