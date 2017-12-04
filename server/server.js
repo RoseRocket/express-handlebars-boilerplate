@@ -1,12 +1,12 @@
 /* eslint no-console:0 */
-import fs from 'fs';
 import express from 'express';
 import logger from 'morgan';
 import moment from 'moment';
 import bodyParser from 'body-parser';
 import consoleStamp from 'console-stamp';
-import path from 'path';
 import exphbs from 'express-handlebars';
+import fs from 'fs';
+import path from 'path';
 import routes from './routes/index.js';
 import authRequest from './middlewares/authRequest.js';
 import allowCORSHandler from './middlewares/allowCORS.js';
@@ -65,12 +65,12 @@ app.use(errorHandler);
 
 // set the port for the webservice
 if (process.argv.length > 2) {
-  PORT = process.argv[2];
+  [, , PORT] = process.argv;
 }
 
 // set process title
 if (process.argv.length > 3) {
-  process.title = process.argv[3];
+  [, , , process.title] = process.argv;
 } else if (TITLE) {
   process.title = TITLE;
 }
