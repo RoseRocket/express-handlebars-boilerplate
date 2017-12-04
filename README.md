@@ -1,9 +1,10 @@
-Express Handlebars Boilerplate
-========
+# Express Handlebars Boilerplate
 
-> Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS page
+> Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS
+> page
 
-## Create environment variable
+## Create environment variables
+
 ```
 cp .env.example .env
 ```
@@ -34,21 +35,25 @@ node app.js [port] [process title] [process.pid file]
 ## (Default settings) Available URLs:
 
 Basic ping request:
+
 ```
 http://localhost:3000/ping
 ```
 
 Basic handlebars templating example:
+
 ```
 http://localhost:3000/home
 ```
 
 Basic handlebars templating with partials example:
+
 ```
 http://localhost:3000/homeWithPartials
 ```
 
 An example with calling API to get data for the template:
+
 ```
 http://localhost:3000/users/anvk/repos?token=SOME-KEY-HERE
 ```
