@@ -1,73 +1,75 @@
 {
-  "name": "express-handlebars-boilerplate",
-  "version": "1.2.1",
-  "description":
-    "Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS page",
-  "contributors": [
-    {
-      "name": "Alexey Novak",
-      "email": "alexey.novak.mail@gmail.com"
+    "name": "express-handlebars-boilerplate",
+    "version": "1.2.2",
+    "description":
+        "Boilerplate for server-side rendering using Handlebars and Express when you need a simple HTML/CSS page",
+    "contributors": [
+        {
+            "name": "Alexey Novak",
+            "email": "alexey.novak.mail@gmail.com"
+        },
+        {
+            "name": "Alexander Luksidadi",
+            "email": "alex.l@roserocket.com"
+        }
+    ],
+    "scripts": {
+        "lint": "eslint server/",
+        "clean:test": "node ./node_modules/del-cli/cli.js -f ./test-dist/",
+        "build:test":
+            "npm run clean:test && node ./node_modules/babel-cli/bin/babel.js test/ -d test-dist/",
+        "test":
+            "npm run build:test && node node_modules/mocha/bin/mocha --reporter spec test-dist/*",
+        "clean": "node ./node_modules/del-cli/cli.js -f ./server-dist/",
+        "build:css": "lessc --clean-css ./less/main.less ./public/css/main.min.css",
+        "build":
+            "npm run build:css && npm run clean && node ./node_modules/babel-cli/bin/babel.js server/ -d server-dist/",
+        "start": "npm run build && node app.js"
     },
-    {
-      "name": "Alexander Luksidadi"
-    }
-  ],
-  "scripts": {
-    "lint": "eslint server/",
-    "clean:test": "node ./node_modules/del-cli/cli.js -f ./test-dist/",
-    "build:test":
-      "npm run clean:test && node ./node_modules/babel-cli/bin/babel.js test/ -d test-dist/",
-    "test": "npm run build:test && node node_modules/mocha/bin/mocha --reporter spec test-dist/*",
-    "clean": "node ./node_modules/del-cli/cli.js -f ./server-dist/",
-    "build:css": "lessc --clean-css ./less/main.less ./public/css/main.min.css",
-    "build":
-      "npm run build:css && npm run clean && node ./node_modules/babel-cli/bin/babel.js server/ -d server-dist/",
-    "start": "npm run build && node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:anvk/express-handlebars-boilerplate.git"
-  },
-  "homepage": "https://github.com/anvk/express-handlebars-boilerplate",
-  "bugs": "https://github.com/anvk/express-handlebars-boilerplate/issues",
-  "keywords": [
-    "express",
-    "handlebars",
-    "boilerplate",
-    "templating",
-    "server-side rendering",
-    "templates"
-  ],
-  "dependencies": {
-    "body-parser": "1.18.2",
-    "bootstrap": "3.3.7",
-    "console-stamp": "0.2.6",
-    "dotenv": "4.0.0",
-    "express": "4.16.2",
-    "express-handlebars": "3.0.0",
-    "express-unless": "0.3.1",
-    "less": "2.7.3",
-    "less-plugin-clean-css": "1.5.1",
-    "moment": "2.19.3",
-    "morgan": "1.9.0",
-    "promise": "8.0.1",
-    "superagent": "3.8.1"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "7.0.0-beta.34",
-    "babel-cli": "6.26.0",
-    "babel-eslint": "8.0.3",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-stage-0": "6.24.1",
-    "chai": "4.1.2",
-    "del-cli": "1.1.0",
-    "eslint": "4.12.1",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-jsx-a11y": "6.0.2",
-    "eslint-plugin-react": "7.5.1",
-    "mocha": "4.0.1"
-  },
-  "engine": "node >= 0.10.x",
-  "license": "MIT"
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:roserocket/express-handlebars-boilerplate.git"
+    },
+    "homepage": "https://github.com/roserocket/express-handlebars-boilerplate",
+    "bugs": "https://github.com/roserocket/express-handlebars-boilerplate/issues",
+    "keywords": [
+        "express",
+        "handlebars",
+        "boilerplate",
+        "templating",
+        "server-side rendering",
+        "templates"
+    ],
+    "dependencies": {
+        "body-parser": "1.18.2",
+        "bootstrap": "3.3.7",
+        "console-stamp": "0.2.6",
+        "dotenv": "4.0.0",
+        "express": "4.16.2",
+        "express-handlebars": "3.0.0",
+        "express-unless": "0.3.1",
+        "less": "2.7.3",
+        "less-plugin-clean-css": "1.5.1",
+        "moment": "2.19.3",
+        "morgan": "1.9.0",
+        "promise": "8.0.1",
+        "superagent": "3.8.1"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "7.0.0-beta.34",
+        "babel-cli": "6.26.0",
+        "babel-eslint": "8.0.3",
+        "babel-preset-env": "1.6.1",
+        "babel-preset-stage-0": "6.24.1",
+        "chai": "4.1.2",
+        "del-cli": "1.1.0",
+        "eslint": "4.12.1",
+        "eslint-config-airbnb": "16.1.0",
+        "eslint-plugin-import": "2.8.0",
+        "eslint-plugin-jsx-a11y": "6.0.2",
+        "eslint-plugin-react": "7.5.1",
+        "mocha": "4.0.1"
+    },
+    "engine": "node >= 0.10.x",
+    "license": "MIT"
 }
